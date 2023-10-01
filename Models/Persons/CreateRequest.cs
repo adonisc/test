@@ -14,11 +14,8 @@ public class CreateRequest
     [Required]
     public string LastName { get; set; }
 
-    //[Required]
-    //[EnumDataType(typeof(Role))]
     [Required]
     public string Gender { get; set; }
-    //public string Role { get; set; }
 
     [Required]
     [EmailAddress]
@@ -26,12 +23,4 @@ public class CreateRequest
 
     [Required]
     public string Country { get; set; }
-
-    // [Required]
-    // [MinLength(6)]
-    // public string Password { get; set; }
-
-    // [Required]
-    // [Compare("Password")]
-    // public string ConfirmPassword { get; set; }
 }
