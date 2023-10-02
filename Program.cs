@@ -1,6 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 using WebApi.Helpers;
 using WebApi.Services;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,9 +24,18 @@ var builder = WebApplication.CreateBuilder(args);
 
     // configure DI for application services
     services.AddScoped<IPersonService, PersonService>();
+    services.AddEndpointsApiExplorer();
+    services.AddSwaggerGen(s =>
+{
+    s.SwaggerDoc("v1", new OpenApiInfo { Title = "Service Manager API", Description = "API Docs for the Service Manager Layer.", Version = "v1"});
+});
 }
 
 var app = builder.Build();
+app.UseSwaggerUI(c =>
+        {
+            c.SwaggerEndpoint("v1/swagger.json", "Tiny Web API V1");
+        });
 
 // configure HTTP request pipeline
 {

@@ -20,6 +20,7 @@ public class PersonsController : ControllerBase
         _mapper = mapper;
     }
 
+    // GET: api/Person
     [HttpGet]
     public IActionResult GetAll()
     {
@@ -27,6 +28,7 @@ public class PersonsController : ControllerBase
         return Ok(persons);
     }
 
+    // GET: api/Person/5
     [HttpGet("{id}")]
     public IActionResult GetById(int id)
     {
@@ -41,6 +43,7 @@ public class PersonsController : ControllerBase
         return Ok(new { message = "Person created" });
     }
 
+    // PUT: api/Person/5
     [HttpPut("{id}")]
     public IActionResult Update(int id, UpdateRequest model)
     {
@@ -48,6 +51,7 @@ public class PersonsController : ControllerBase
         return Ok(new { message = "Person updated" });
     }
 
+    // DELETE: api/Person/5
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
